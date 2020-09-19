@@ -1,13 +1,9 @@
 package ru.demedyuk.education.springcource;
 
+import org.springframework.stereotype.Component;
+
+@Component("classicalMusic")
 public class ClassicalMusic implements Music {
-
-    private ClassicalMusic() {
-    }
-
-    public static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
-    }
 
     @Override
     public String getSong() {
