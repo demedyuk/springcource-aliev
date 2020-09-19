@@ -9,4 +9,7 @@
 
     <!--    указываем классы для сканирования для создания бинов-->
     <context:component-scan base-package="ru.demedyuk.education.springcource"/>
+
+    <!--    указываем файл для замены плейсхолдеров значениями -->
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
 </beans>
