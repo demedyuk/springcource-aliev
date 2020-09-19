@@ -11,9 +11,10 @@
 
     <bean id="musicClassicalBean"
           class="ru.demedyuk.education.springcource.ClassicalMusic"
-          scope="prototype"
           init-method="doMyInit"
-          destroy-method="doMyDestroy">
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic"
+    >
     </bean>
     <bean id="musicRockBean"
           class="ru.demedyuk.education.springcource.RockMusic">
