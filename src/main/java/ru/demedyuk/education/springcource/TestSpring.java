@@ -1,20 +1,21 @@
 package ru.demedyuk.education.springcource;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
 
 //        Music classicalMusic = context.getBean("popMusic", Music.class);
 //        System.out.println(classicalMusic.getSong());
 
-        MusicPlayer musicPlayer = context.getBean("musicPlayerBean", MusicPlayer.class);
+        MusicPlayer musicPlayer = annotationConfigApplicationContext.getBean("musicPlayerBean", MusicPlayer.class);
         System.out.println(musicPlayer.getName());
         System.out.println(musicPlayer.getVolume());
 
-        ClassicalMusic classicalMusic1 = context.getBean("classicalMusic", ClassicalMusic.class);
-        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);
+        ClassicalMusic classicalMusic1 = annotationConfigApplicationContext.getBean("classicalMusic", ClassicalMusic.class);
+        ClassicalMusic classicalMusic2 = annotationConfigApplicationContext.getBean("classicalMusic", ClassicalMusic.class);
 
         System.out.println(classicalMusic1);
         System.out.println(classicalMusic2);
@@ -22,6 +23,6 @@ public class TestSpring {
 //        Computer computer = context.getBean("computer", Computer.class);
 //        System.out.println(computer);
 
-        context.close();
+        annotationConfigApplicationContext.close();
     }
 }
