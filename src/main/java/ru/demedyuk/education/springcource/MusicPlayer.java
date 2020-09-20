@@ -7,17 +7,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component("musicPlayerBean")
 public class MusicPlayer {
 
-    private Music music1;
-    private Music music2;
+    private List<Music> musicList = new ArrayList<Music>();
 
-//    @Value("${musicPlayer.name}")
     private String name;
-
-//    @Value("${musicPlayer.volume}")
     private int volume;
 
     public String getName() {
@@ -28,15 +25,11 @@ public class MusicPlayer {
         return volume;
     }
 
-    public MusicPlayer(/*@Qualifier("rockMusic")*/ Music music1, /*@Qualifier("popMusic")*/ Music music2) {
-        this.music1 = music1;
-        this.music2 = music2;
+    public MusicPlayer(List<Music> musicList) {
+       this.musicList = musicList;
     }
 
     public String playMusic() {
-        return "Playing: " + music1.getSong();
-////        System.out.println();
-//        System.out.println("Playing: " + music1.getSong());
-//        System.out.println("Playing: " + music2.getSong());
+        return "Playing: " + musicList.get(new Random().nextInt(3)).getSong();
     }
 }
