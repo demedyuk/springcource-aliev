@@ -14,10 +14,10 @@ public class MusicPlayer {
     private Music music1;
     private Music music2;
 
-    @Value("${musicPlayer.name}")
+//    @Value("${musicPlayer.name}")
     private String name;
 
-    @Value("${musicPlayer.volume}")
+//    @Value("${musicPlayer.volume}")
     private int volume;
 
     public String getName() {
@@ -28,15 +28,15 @@ public class MusicPlayer {
         return volume;
     }
 
-    public MusicPlayer(@Qualifier("rockMusic") Music music1, @Qualifier("popMusic") Music music2) {
+    public MusicPlayer(/*@Qualifier("rockMusic")*/ Music music1, /*@Qualifier("popMusic")*/ Music music2) {
         this.music1 = music1;
         this.music2 = music2;
     }
 
-    public void playMusic() {
-//        return "Playing: " + music.getSong();
-//        System.out.println();
-        System.out.println("Playing: " + music1.getSong());
-        System.out.println("Playing: " + music2.getSong());
+    public String playMusic() {
+        return "Playing: " + music1.getSong();
+////        System.out.println();
+//        System.out.println("Playing: " + music1.getSong());
+//        System.out.println("Playing: " + music2.getSong());
     }
 }
