@@ -30,6 +30,6 @@ public class MusicPlayer {
     }
 
     public String playMusic() {
-        return "Playing: " + musicList.get(new Random().nextInt(3)).getSong();
+        return "Playing: " + musicList.get(new Random().nextInt(musicList.size())).getSong();
     }
 }
